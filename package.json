@@ -4,5 +4,27 @@
   "description": "Bitmap data structure",
   "main": "index.js",
   "license": "MIT",
-  "author": "sdvcrx"
+  "author": "sdvcrx",
+  "scripts": {
+    "test": "nyc ava"
+  },
+  "devDependencies": {
+    "ava": "^1.0.1",
+    "nyc": "^13.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdvcrx/bitmap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sdvcrx/bitmap/issues"
+  },
+  "homepage": "https://github.com/sdvcrx/bitmap#readme",
+  "keywords": [
+    "bit",
+    "bitset",
+    "bitmap",
+    "bit array",
+    "data structure"
+  ]
 }
