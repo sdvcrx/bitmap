@@ -20,7 +20,7 @@ class Bitmap {
     const index = Math.floor(val / 8)
     const pos = val % 8
 
-    return (this.view[index] & (1 << pos)) != 0
+    return (this.view[index] & (1 << pos)) !== 0
   }
 
   clear (val) {
