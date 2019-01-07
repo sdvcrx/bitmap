@@ -13,3 +13,23 @@ test('add and test numberes in bitmap', t => {
   t.false(bitmap.contains(6))
   t.false(bitmap.contains(9))
 })
+
+test('clear numberes from bitmap', t => {
+  const bitmap = new Bitmap(10)
+  bitmap
+    .add(2)
+    .add(5)
+
+  t.true(bitmap.contains(2))
+  t.true(bitmap.contains(5))
+
+  bitmap.clear(2)
+  t.false(bitmap.contains(2))
+})
+
+test('throw exception when val is greater than length', (t) => {
+  const bitmap = new Bitmap(10)
+  t.throws(function () {
+    bitmap.add(11)
+  }, TypeError)
+})
