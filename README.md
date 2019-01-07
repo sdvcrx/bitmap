@@ -2,6 +2,8 @@
 
 A simple bitmap (data structure) implementation in JavaScript.
 
+[![Build Status](https://travis-ci.org/sdvcrx/bitmap.svg?branch=master)](https://travis-ci.org/sdvcrx/bitmap) [![Coverage Status](https://coveralls.io/repos/github/sdvcrx/bitmap/badge.svg?branch=master)](https://coveralls.io/github/sdvcrx/bitmap?branch=master)
+
 ## Install
 
 ```bash
