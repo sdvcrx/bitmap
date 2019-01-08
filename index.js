@@ -5,28 +5,48 @@ class Bitmap {
     this.view = new Uint8Array(this.buf)
   }
 
-  add (val) {
+  setbit (val, bit = 1) {
     const index = Math.floor(val / 8)
     const pos = val % 8
     if (this.length < val) {
       throw new TypeError(`value out of range, max: ${this.length} got: ${val}`)
     }
 
-    this.view[index] |= 1 << pos
+    if (bit === 1) {
+      // set bit
+      this.view[index] |= 1 << pos
+    } else {
+      // clear bit
+      this.view[index] &= ~(1 << pos)
+    }
+  }
+
+  getbit (val) {
+    const index = Math.floor(val / 8)
+    const pos = val % 8
+
+    return this.view[index] & (1 << pos)
+  }
+
+  add (val) {
+    if (Array.isArray(val)) {
+      val.forEach(v => this.setbit(v, 1))
+    } else {
+      this.setbit(val, 1)
+    }
     return this
   }
 
   contains (val) {
-    const index = Math.floor(val / 8)
-    const pos = val % 8
-
-    return (this.view[index] & (1 << pos)) !== 0
+    return this.getbit(val) !== 0
   }
 
   clear (val) {
-    const index = Math.floor(val / 8)
-    const pos = val % 8
-    this.view[index] &= ~(1 << pos)
+    if (Array.isArray(val)) {
+      val.forEach(v => this.setbit(v, 0))
+    } else {
+      this.setbit(val, 0)
+    }
     return this
   }
 }
